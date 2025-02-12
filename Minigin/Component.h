@@ -9,10 +9,10 @@ namespace dae
     public:
         virtual ~Component() = default;
 
-        virtual void Update() = 0;
-        virtual void LateUpdate() = 0;
-        virtual void FixedUpdate(float fixedTimeStep) = 0;
-        virtual void Render() const = 0;
+        virtual void Update() {}
+        virtual void LateUpdate() {}
+        virtual void FixedUpdate(float /*fixedTimeStep*/) {}
+        virtual void Render() const {}
 
         void SetOwner(GameObject* owner) { m_owner = owner; }
         GameObject* GetOwner() const { return m_owner; }

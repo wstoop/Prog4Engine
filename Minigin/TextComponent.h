@@ -11,8 +11,6 @@ namespace dae
 	{
 	public:
 		void Update() override;
-		void LateUpdate() override {}
-		void FixedUpdate(float) override {}
 		void Render() const override;
 
 		void SetText(const std::string& text);

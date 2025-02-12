@@ -12,9 +12,6 @@ namespace dae
         TextureComponent(const std::string& filename);
         ~TextureComponent() override = default;
 
-        void Update() override {}
-        void LateUpdate() override {}
-        void FixedUpdate(float) override {}
         void Render() const override;
 
         void SetTexture(const std::string& filename);
