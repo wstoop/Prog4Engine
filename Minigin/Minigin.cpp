@@ -106,7 +106,7 @@ void dae::Minigin::Run(const std::function<void()>& load)
 		sceneManager.Update();
 		sceneManager.LateUpdate();
 		renderer.Render();
-        constexpr int ms_per_frame = 1000 / 60; // 60 FPS
+        constexpr int ms_per_frame = 1000 / 60;
 		const auto sleep_time = current_time + std::chrono::milliseconds(ms_per_frame) - std::chrono::high_resolution_clock::now();
         std::this_thread::sleep_for(sleep_time);
 	}
