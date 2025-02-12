@@ -6,6 +6,8 @@
 dae::GameObject::~GameObject() = default;
 
 void dae::GameObject::Update(){}
+void dae::GameObject::LateUpdate() {}
+void dae::GameObject::FixedUpdate(float /*fixedTimeStep*/){}
 
 void dae::GameObject::Render() const
 {
