@@ -69,6 +69,12 @@
     <ClInclude Include="TextureComponent.h">
       <Filter>Components\Header</Filter>
     </ClInclude>
+    <ClInclude Include="TextComponent.h">
+      <Filter>Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="AllComponents.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ResourceManager.cpp">
@@ -108,6 +114,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TextureComponent.cpp">
+      <Filter>Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TextComponent.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
   </ItemGroup>

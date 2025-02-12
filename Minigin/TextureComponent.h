@@ -6,7 +6,7 @@
 
 namespace dae
 {
-    class TextureComponent : public Component
+    class TextureComponent final : public Component
     {
     public:
         TextureComponent(const std::string& filename);
