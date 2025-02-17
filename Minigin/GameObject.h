@@ -36,7 +36,6 @@ namespace dae
 		{
 			static_assert(std::is_base_of<Component, T>::value, "T must derive from Component");
 			auto component = std::make_shared<T>(std::forward<Args>(args)...);
-			component->SetOwner(this);
 			m_components.push_back(component);
 			return component;
 		}

@@ -1,11 +1,12 @@
-#include "TextureComponent.h"
 #include "Renderer.h"
 #include "GameObject.h"
 #include "ResourceManager.h"
+#include "TextureComponent.h"
 
 namespace dae
 {
-    TextureComponent::TextureComponent(const std::string& filename)
+    TextureComponent::TextureComponent(GameObject* owner, const std::string& filename):
+		Component(owner)
     {
         SetTexture(filename);
     }
@@ -14,7 +15,7 @@ namespace dae
     {
         if (m_texture)
         {
-			const auto pos = m_owner->GetTransform().GetPosition();
+			const auto pos = Component::GetOwner()->GetTransform().GetPosition();
             Renderer::GetInstance().RenderTexture(*m_texture, pos.x, pos.y);
         }
     }
@@ -23,4 +24,9 @@ namespace dae
     {
         m_texture = dae::ResourceManager::GetInstance().LoadTexture(filename);
     }
+
+	void TextureComponent::Update()
+	{
+
+	}
 }

@@ -3,12 +3,13 @@
 #include <memory>
 #include "Component.h"
 
+class GameObject;
 namespace dae
 {
 	class FPSComponent final : public Component
 	{
 	public:
-		FPSComponent();
+		FPSComponent(GameObject* owner);
 		~FPSComponent() override = default;
 		void Update() override;
 		void LateUpdate() override;
@@ -19,10 +20,8 @@ namespace dae
 		float GetFPS() const;
 
 	private:
-		friend class Component;
 		float m_FPS{ 0.0f };
 		int m_FrameCount{ 0 };
 		float m_ElapsedTime{ 0.0f };
-		
 	};
 }

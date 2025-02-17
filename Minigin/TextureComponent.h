@@ -9,11 +9,11 @@ namespace dae
     class TextureComponent final : public Component
     {
     public:
-        TextureComponent(const std::string& filename);
+        TextureComponent(GameObject* owner, const std::string& filename);
         ~TextureComponent() override = default;
 
         void Render() const override;
-
+		void Update() override;
         void SetTexture(const std::string& filename);
 
     private: 

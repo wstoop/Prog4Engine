@@ -1,14 +1,15 @@
 #include <stdexcept>
 #include <SDL_ttf.h>
-#include "TextComponent.h"
 #include "Renderer.h"
 #include "Font.h"
 #include "Texture2D.h"
 #include "GameObject.h"
+#include "TextComponent.h"
+
 namespace dae
 {
-	TextComponent::TextComponent(const std::string & text, std::shared_ptr<Font> font)
-		: m_needsUpdate(true), m_text(text), m_font(std::move(font)), m_textTexture(nullptr)
+	TextComponent::TextComponent(GameObject* owner, const std::string & text, std::shared_ptr<Font> font)
+		: Component(owner), m_needsUpdate(true), m_text(text), m_font(std::move(font)), m_textTexture(nullptr)
 	{
 	}
 
@@ -37,7 +38,7 @@ namespace dae
 	{
 		if (m_textTexture != nullptr)
 		{
-			const auto pos = m_owner->GetTransform().GetPosition();
+			const auto pos = Component::GetOwner()->GetTransform().GetPosition();
 			Renderer::GetInstance().RenderTexture(*m_textTexture, pos.x, pos.y);
 		}
 	}

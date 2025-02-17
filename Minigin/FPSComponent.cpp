@@ -1,14 +1,14 @@
-#include "FPSComponent.h"
 #include "TimeManager.h"
 #include "GameObject.h"
 #include "TextComponent.h"
 #include <format>
+#include "FPSComponent.h"
 namespace dae
 {
     constexpr float FPS_UPDATE_INTERVAL = 0.30f;
 
-    FPSComponent::FPSComponent()
-        : m_FPS(0.0f), m_FrameCount(0), m_ElapsedTime(0.0f)
+    FPSComponent::FPSComponent(GameObject* owner)
+        : Component(owner) , m_FPS(0.0f), m_FrameCount(0), m_ElapsedTime(0.0f)
     {
     }
 
@@ -24,7 +24,7 @@ namespace dae
 
     void FPSComponent::LateUpdate()
     {
-        m_owner->GetComponent<TextComponent>()->SetText("FPS: " + std::format("{:.1f}", m_FPS));
+        Component::GetOwner()->GetComponent<TextComponent>()->SetText("FPS: " + std::format("{:.1f}", m_FPS));
     }
 
     void FPSComponent::CalculateFPS()
