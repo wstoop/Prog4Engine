@@ -78,6 +78,9 @@
     <ClInclude Include="FPSComponent.h">
       <Filter>Components\Header</Filter>
     </ClInclude>
+    <ClInclude Include="RotateComponent.h">
+      <Filter>Components\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ResourceManager.cpp">
@@ -123,6 +126,15 @@
       <Filter>Components\Source</Filter>
     </ClCompile>
     <ClCompile Include="FPSComponent.cpp">
+      <Filter>Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateComponent.cpp">
+      <Filter>Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteSheetComponent.h">
+      <Filter>Components\Header</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteSheetComponent.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
   </ItemGroup>

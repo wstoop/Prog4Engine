@@ -1,9 +1,9 @@
 #include <string>
-#include "GameObject.h"
 #include "ResourceManager.h"
 #include "Renderer.h"
 #include "Component.h" 
 #include "iostream"
+#include "GameObject.h"
 
 dae::GameObject::~GameObject() = default;
 
@@ -90,4 +90,16 @@ bool dae::GameObject::IsChild(GameObject* child) const
 {
     return std::find_if(m_children.begin(), m_children.end(), 
         [child](const GameObject* ptr) { return ptr == child; }) != m_children.end();
+}
+
+void dae::GameObject::SetPositionDirty()
+{
+    m_positionIsDirty = true;
+    for (auto child : m_children)
+        child->SetPositionDirty();
+}
+
+dae::GameObject * dae::GameObject::GetParent()
+{
+	return m_parent;
 }
