@@ -15,7 +15,7 @@ namespace dae
     {
         if (m_texture)
         {
-			const auto pos = Component::GetOwner()->GetTransform().GetPosition();
+			const auto pos = Component::GetOwner()->GetWorldPosition();
             Renderer::GetInstance().RenderTexture(*m_texture, pos.x, pos.y);
         }
     }

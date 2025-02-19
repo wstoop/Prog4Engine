@@ -16,8 +16,6 @@ namespace dae
 		void FixedUpdate(float fixedTimeStep);
 		void Render() const;
 
-		void SetPosition(float x, float y);
-
 		template <typename T>
 		std::shared_ptr<T> GetComponent() const
 		{
@@ -52,7 +50,12 @@ namespace dae
 				m_components.end());
 		}
 
-		Transform GetTransform() const { return m_transform; }
+
+		void SetParent(GameObject* parent, bool keepWorldPosition);
+		void SetLocalPosition(const glm::vec3& pos);
+		const glm::vec3& GetWorldPosition();
+		void UpdateWorldPosition();
+
 		GameObject() = default;
 		~GameObject();
 		GameObject(const GameObject& other) = delete;
@@ -61,7 +64,17 @@ namespace dae
 		GameObject& operator=(GameObject&& other) = delete;
 
 	private:
-		Transform m_transform{};
+		void AddChild(GameObject* child);
+		void RemoveChild(GameObject* child);
+		bool IsChild(GameObject* child) const;
+
+		void SetPositionDirty() { m_positionIsDirty = true; };
+		glm::vec3 m_worldPosition{};
+		glm::vec3 m_localPosition{};
+
+		GameObject* m_parent = nullptr;
+		bool m_positionIsDirty = true;
+		std::vector<GameObject*> m_children{};
 		std::vector<std::shared_ptr<Component>> m_components{};
 	};
 }
