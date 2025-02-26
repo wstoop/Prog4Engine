@@ -5,7 +5,10 @@
 #include "iostream"
 #include "GameObject.h"
 
-dae::GameObject::~GameObject() = default;
+dae::GameObject::~GameObject()
+{
+	m_IsDestroyed = true;
+}
 
 void dae::GameObject::Update()
 {
@@ -16,6 +19,14 @@ void dae::GameObject::Update()
 
 void dae::GameObject::LateUpdate()
 {
+	if (m_IsDestroyed)
+	{
+        m_components.clear();
+        m_children.clear();
+        if (m_parent) m_parent->RemoveChild(this);
+        return;
+	}
+
     std::for_each(m_components.begin(), m_components.end(), [](const auto& component) {
         component->LateUpdate();
         });
@@ -103,3 +114,5 @@ dae::GameObject * dae::GameObject::GetParent()
 {
 	return m_parent;
 }
+
+

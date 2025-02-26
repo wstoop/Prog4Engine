@@ -72,6 +72,7 @@ namespace dae
 		glm::vec3 m_worldPosition{};
 		glm::vec3 m_localPosition{};
 
+		bool m_IsDestroyed = false;
 		GameObject* m_parent = nullptr;
 		bool m_positionIsDirty = true;
 		std::vector<GameObject*> m_children{};
