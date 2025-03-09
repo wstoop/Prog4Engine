@@ -32,10 +32,10 @@ void dae::GameObject::LateUpdate()
         });
 }
 
-void dae::GameObject::FixedUpdate(float fixedTimeStep)
+void dae::GameObject::FixedUpdate()
 {
-    std::for_each(m_components.begin(), m_components.end(), [fixedTimeStep](const auto& component) {
-        component->FixedUpdate(fixedTimeStep);
+    std::for_each(m_components.begin(), m_components.end(), [](const auto& component) {
+        component->FixedUpdate();
         });
 }
 
@@ -113,6 +113,11 @@ void dae::GameObject::SetPositionDirty()
 dae::GameObject * dae::GameObject::GetParent()
 {
 	return m_parent;
+}
+
+const glm::vec3& dae::GameObject::GetLocalPosition()
+{
+    return m_localPosition;
 }
 
 

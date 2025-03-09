@@ -2,6 +2,7 @@
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "InputManager.h"
+
 bool dae::InputManager::ProcessInput()
 {
 	SDL_Event e;

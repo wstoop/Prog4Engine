@@ -53,14 +53,14 @@ namespace dae
         const auto pos = GetOwner()->GetWorldPosition();
 
         // Render the texture using the renderer, passing the cached source rectangle ("box")
-        Renderer::GetInstance().RenderTexture(*m_pSpritesheet, pos.x, pos.y, m_SpriteWidth * 3, m_SpriteHeight * 3, &m_cachedSrcRect);
+        Renderer::GetInstance().RenderTexture(*m_pSpritesheet, pos.x - (m_SpriteWidth / 2) , pos.y - (m_SpriteHeight / 2), m_SpriteWidth * 3, m_SpriteHeight * 3, &m_cachedSrcRect);
     }
 
     void SpriteSheetComponent::Update()
     {
 
         // Accumulate elapsed time and update the current frame if enough time has passed
-        m_AccumulatedTime += TimeManager::GetInstance().GetDeltaTime();
+        m_AccumulatedTime += TimeManager::GetInstance().m_DeltaTime;
         if (m_AccumulatedTime >= m_FrameTime)
         {
             if (m_IsLooping || (!m_IsLooping && m_CurrFrame < m_NumFrames))

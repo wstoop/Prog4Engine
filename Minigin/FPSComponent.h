@@ -13,7 +13,7 @@ namespace dae
 		~FPSComponent() override = default;
 		void Update() override;
 		void LateUpdate() override;
-		void FixedUpdate(float fixedTimeStep) override;
+		void FixedUpdate() override;
 
 		void CalculateFPS();
 		void CalculateFPS(float deltaTime);

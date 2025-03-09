@@ -1,5 +1,4 @@
 #pragma once
-
 class GameObject;
 namespace dae
 {
@@ -15,9 +14,11 @@ namespace dae
 		virtual void Render() const {};
 		virtual void Update() = 0;
 		virtual void LateUpdate() {};
-		virtual void FixedUpdate(float /*fixedTimeStep*/) {};
+		virtual void FixedUpdate() {};
 	protected:
 		explicit Component(GameObject* pOwner) : m_pOwner(pOwner) {}
 		GameObject* GetOwner() const { return m_pOwner; }
 	};
 }
+
+

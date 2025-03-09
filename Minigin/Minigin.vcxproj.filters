@@ -111,6 +111,15 @@
     <ClInclude Include="imgui_impl_opengl3_loader.h">
       <Filter>Imgui</Filter>
     </ClInclude>
+    <ClInclude Include="PerformanceGraphComponent.h">
+      <Filter>Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveComponent.h">
+      <Filter>Components\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ResourceManager.cpp">
@@ -158,9 +167,6 @@
     <ClCompile Include="FPSComponent.cpp">
       <Filter>Components\Source</Filter>
     </ClCompile>
-    <ClCompile Include="RotateComponent.cpp">
-      <Filter>Components\Source</Filter>
-    </ClCompile>
     <ClCompile Include="SpriteSheetComponent.h">
       <Filter>Components\Header</Filter>
     </ClCompile>
@@ -187,6 +193,12 @@
     </ClCompile>
     <ClCompile Include="imgui_impl_opengl3.cpp">
       <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Comands.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveComponent.cpp">
+      <Filter>Components\Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

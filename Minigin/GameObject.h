@@ -13,7 +13,7 @@ namespace dae
 	public:
 		void Update();
 		void LateUpdate();
-		void FixedUpdate(float fixedTimeStep);
+		void FixedUpdate();
 		void Render() const;
 
 		template <typename T>
@@ -54,6 +54,7 @@ namespace dae
 		void SetParent(GameObject* parent, bool keepWorldPosition);
 		void SetLocalPosition(const glm::vec3& pos);
 		const glm::vec3& GetWorldPosition();
+		const glm::vec3& GetLocalPosition();
 		void UpdateWorldPosition();
 		GameObject* GetParent();
 

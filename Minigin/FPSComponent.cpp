@@ -17,9 +17,9 @@ namespace dae
         CalculateFPS();
     }
 
-    void FPSComponent::FixedUpdate(float fixedTimeStep)
+    void FPSComponent::FixedUpdate()
     {
-        (void)fixedTimeStep;
+      
     }
 
     void FPSComponent::LateUpdate()
@@ -30,7 +30,7 @@ namespace dae
     void FPSComponent::CalculateFPS()
     {
         auto& timeManager = TimeManager::GetInstance();
-        CalculateFPS(timeManager.GetDeltaTime());
+        CalculateFPS(timeManager.m_DeltaTime);
     }
 
     void FPSComponent::CalculateFPS(float deltaTime)
